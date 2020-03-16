@@ -1,4 +1,11 @@
-h1 {
-    text-align: center;
-}
+
+  h1 {
+    background-color: gray;
+    width: 100%;
+    margin:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+  
 
