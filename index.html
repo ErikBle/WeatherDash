@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Dashbord</title>
+    <script src="https://kit.fontawesome.com/ff5cba7cc0.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/CSS/style.css">
-        
-          <h1>Weather Dashbord</h1>
-        
 </head>
 <body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <div class='row'>
+        <div class='col-md-3'>
+          <div class='card'>
+            <div class='card-body'>
+              <label>Search For a City:</label>
+              <div class="input-group mb-3">
+                <input id="citySearch" type="text" class="form-control"></input>
+                  <!-- <div class="input-group-append"> -->
+                    <button id='getWeather' class="btn btn-info type="submit>
+                      <i id='getWeatherIcon' class="fas fa-search-location"></i>
+                    </button>
+                  </div>
+                </div>
+              <div id='past-cities'></div>
+            </div>
+          </div>
+        </div>
 
 
 
