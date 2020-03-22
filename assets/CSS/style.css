@@ -8,4 +8,26 @@
     justify-content: center;
   }
   
+  .card {
+    width: 100%;
+    background-color: silver;
+  
+  
+  }
 
+  .row {
+    margin-top: 5px;
+  }
+
+  .col { 
+    padding: 5px;
+  }
+
+  /* FOR THE PAST CiTIES, I DID NOT INCLUDE YET
+  .pastCityList {
+    border: solid;
+    border-width: thin;
+    margin: 5px;
+    padding-left: 2px;
+    background-color: lightgrey;
+  }*/

@@ -12,24 +12,47 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
+    <div class='container'>
     <div class='row'>
-        <div class='col-md-3'>
-          <div class='card'>
+      <div class='col-md-3'>
+        <div class='card'>
             <div class='card-body'>
               <label>Search For a City:</label>
               <div class="input-group mb-3">
                 <input id="citySearch" type="text" class="form-control"></input>
                   <!-- <div class="input-group-append"> -->
-                    <button id='getWeather' class="btn btn-info type="submit>
-                      <i id='getWeatherIcon' class="fas fa-search-location"></i>
+                    <button id='getWeather' class="btn btn-info" type="submit">
+                      <i class="fas fa-search-location"></i>
                     </button>
                   </div>
                 </div>
-              <div id='past-cities'></div>
+              <div id='pastCity'></div>
             </div>
           </div>
+          <div class='col-md-9'>
+            <div class='row'>
+              <div class='card'>
+                <div class='card-body'> 
+                  <h5 class='card-title' id='cityName'></h5>
+                  <ul>
+                    <img id='curWeatherIcon'></img>
+                    <li class='card-text' id='curTemp'>Temp:</li>
+                    <li class='card-text' id='curHumid'>Humidity:</li>
+                    <li class='card-text' id='curWind'>Windspeed:</li>
+                    <li class='card-text' id='curUv'>UV Index:</li>
+                  </ul>
+                  </div>
+              </div>
+            </div>
+            <div class='row'>
+              <h2 class='card-title'>5-Day Forecast</h2>
+          </div>
+          <div class='row' id='forecast'></div>
+          </div>
         </div>
-
+      </div>
+      
+        
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
