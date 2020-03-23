@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
 const apiKey = "&appid=74dbb7cafa12a6c802c05abee24b4cd2"
+const apiKey2 = "appid=74dbb7cafa12a6c802c05abee24b4cd2"
 let pastCity = [];
 
 // Gets past searches from local storage, if any
@@ -42,7 +43,7 @@ $('#getWeather').on("click", function(){
         let cityID = data.id
        
 
-      // 2nd call to get the conditions from the ID
+      // 2nd call to get the conditions from the ID 
      $.ajax({
        url: "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + apiKey + "&units=metric",
        method: "GET",
@@ -58,6 +59,29 @@ $('#getWeather').on("click", function(){
        $("#curTemp").append("Temperature: " + result.list[0].main.temp + " °C") 
        $("#curHumid").append("Humidity: " + result.list[0].main.humidity + " %")
        $("#curWind").append("Windspeed: " + result.list[0].wind.speed + " m/s")
+
+       //3rd ajax call to get the long and lat in order to display the proper UV
+       $.ajax({
+         url: "https://api.openweathermap.org/data/2.5/uvi?" + apiKey2 + "&lat=" + result.city.coord.lat + "&lon=" + result.city.coord.lon,
+         method: "GET",
+       }).then(function(results){
+         let bkcolor = ''
+
+        if (results.value < 3){
+          bkcolor = 'green'
+        } else if (results.value < 6){
+          bkcolor = 'yellow'
+
+        } else{
+          bkcolor = 'red'
+
+        }
+        let tag = '<span>UV Index: </span>'
+        let color = tag + `<span style="background-color: ${bkcolor}; padding: 0 7px 0 7px;">${results.value}</span>`;
+        
+        $("#curUV").append(color);
+        
+       })
      })
 
     

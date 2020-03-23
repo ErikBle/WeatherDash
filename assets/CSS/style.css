@@ -1,6 +1,6 @@
 
   h1 {
-    background-color: gray;
+    background-color: wheat;
     width: 100%;
     margin:0;
     display:flex;
@@ -10,7 +10,7 @@
   
   .card {
     width: 100%;
-    background-color: silver;
+    background-color: whitesmoke;
   
   
   }
