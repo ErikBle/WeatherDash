@@ -31,3 +31,12 @@
     padding-left: 2px;
     background-color: lightcyan
   }
+
+  #forecast .fiveDays {
+    padding:5px;
+    background-color: lightskyblue;
+    color:white;
+    border-radius:10px;
+    margin:5px;
+    text-align:center;
+  }

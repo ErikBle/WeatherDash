@@ -56,6 +56,24 @@ let pastCity = [];
        $("#curHumid").append("Humidity: " + result.list[0].main.humidity + " %")
        $("#curWind").append("Windspeed: " + result.list[0].wind.speed + " m/s")
 
+       
+       //5 day forecase
+       $("#forecast").html("");
+       
+       for ( let i=1; i <= 5; i++){
+       
+        let forecast5 = function(i){
+         return ('<div class="fiveDays">' + 
+         '<p>' + getDate(i) + '</p>' +
+         `<img src="https://openweathermap.org/img/w/${result.list[i].weather[0].icon}.png">` +
+        `<p> Temp: ${result.list[i].main.temp} °C</p>` +
+        `<p> Humidity: ${result.list[i].main.humidity} %</p>`
+         + '</div>')
+        }
+                $("#forecast").append(forecast5(i));
+                
+        }
+      
        //3rd ajax call to get the long and lat in order to display the proper UV
        $.ajax({
          url: "https://api.openweathermap.org/data/2.5/uvi?" + apiKey2 + "&lat=" + result.city.coord.lat + "&lon=" + result.city.coord.lon,
@@ -78,8 +96,10 @@ let pastCity = [];
         $("#curUV").append(color);
         
        })
-     })
 
+       
+     })
+     
     
     })
     
@@ -112,6 +132,7 @@ function getHistory(){
 
   })
 }
+
 
 
 
