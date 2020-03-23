@@ -57,7 +57,7 @@ let pastCity = [];
        $("#curWind").append("Windspeed: " + result.list[0].wind.speed + " m/s")
 
        
-       //5 day forecase
+       //5 day forecast
        $("#forecast").html("");
        
        for ( let i=1; i <= 5; i++){
@@ -107,9 +107,6 @@ let pastCity = [];
 
 }
 
-
-
-
 $('#getWeather').on("click", function(){
   let searchName = $("#citySearch").val()
   currentWeather(searchName)
@@ -133,42 +130,6 @@ function getHistory(){
   })
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 getHistory ()
-//DO NOT DELETE
+
 })
