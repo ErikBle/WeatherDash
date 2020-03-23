@@ -23,11 +23,11 @@
     padding: 5px;
   }
 
-  //FOR THE PAST CiTIES, I DID NOT INCLUDE YET
-  .pastCityList {
+  
+  .pastCity {
     border: solid;
     border-width: thin;
-    margin: 5px;
+    margin: 10px;
     padding-left: 2px;
-    background-color: lightgrey;
+    background-color: lightcyan
   }

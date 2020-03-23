@@ -4,11 +4,6 @@ const apiKey = "&appid=74dbb7cafa12a6c802c05abee24b4cd2"
 const apiKey2 = "appid=74dbb7cafa12a6c802c05abee24b4cd2"
 let pastCity = [];
 
-// Gets past searches from local storage, if any
-if( localStorage.getItem("cityName")){
-    pastCity = JSON.parse(localStorage.getItem("cityName"));
-  }
-
   //convert dates
   let getDate = function(days){
     let someDate = new Date();
@@ -23,17 +18,17 @@ if( localStorage.getItem("cityName")){
   }
 // Ajax call to get the ID of the city & saves to local storage
 
-$('#getWeather').on("click", function(){
-    let search = $("#citySearch").val()
-    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + search + apiKey
+ let currentWeather = function(searchName){
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchName + apiKey
     
     // checks to see if pastCity array exists, if not adds the search 
-    if(pastCity.includes(search) !== true){
-      pastCity.push(search);
+    
+      pastCity.push(searchName);
       localStorage.setItem("cityName", JSON.stringify(pastCity));
-    }
+     
+    
 
-   
+    getHistory ()
 
     $.ajax({
         url: queryURL,
@@ -48,6 +43,7 @@ $('#getWeather').on("click", function(){
        url: "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + apiKey + "&units=metric",
        method: "GET",
      }).then(function(result){
+       city = result.city.name
        $("#cityName").empty()
        $("#curWeatherIcon").empty()
        $("#curTemp").empty()
@@ -86,8 +82,36 @@ $('#getWeather').on("click", function(){
 
     
     })
+    
+
+
+}
+
+
+
+
+$('#getWeather').on("click", function(){
+  let searchName = $("#citySearch").val()
+  currentWeather(searchName)
 })
 
+// Gets the past city searches from local storage and displays them
+function getHistory(){
+  let pastCity = JSON.parse(localStorage.getItem("cityName"));
+  $("#pastCity").empty()
+  pastCity.forEach(function(city){
+    let cityNameDiv = $('<div>');
+
+    cityNameDiv.addClass("pastCity");
+    cityNameDiv.attr("cityName",city);
+    cityNameDiv.text(city);
+
+
+    $('#pastCity').append(cityNameDiv);
+
+
+  })
+}
 
 
 
@@ -124,13 +148,6 @@ $('#getWeather').on("click", function(){
 
 
 
-
-
-
-
-
-
-
-
+getHistory ()
 //DO NOT DELETE
 })
