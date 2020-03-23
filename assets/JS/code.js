@@ -47,7 +47,17 @@ $('#getWeather').on("click", function(){
        url: "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + apiKey + "&units=metric",
        method: "GET",
      }).then(function(result){
-       console.log(result)
+       $("#cityName").empty()
+       $("#curWeatherIcon").empty()
+       $("#curTemp").empty()
+       $("#curHumid").empty()
+       $("#curWind").empty()
+       $("#curUV").empty()
+       $("#cityName").append(result.city.name + ' ' + getDate(0))
+       $("#curWeatherIcon").append(`<img src="https://openweathermap.org/img/w/${result.list[0].weather[0].icon}.png">`)
+       $("#curTemp").append("Temperature: " + result.list[0].main.temp + " °C") 
+       $("#curHumid").append("Humidity: " + result.list[0].main.humidity + " %")
+       $("#curWind").append("Windspeed: " + result.list[0].wind.speed + " m/s")
      })
 
     
