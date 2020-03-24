@@ -22,4 +22,5 @@ Your searches will also be saved.
 Deployed Link: https://erikble.github.io/WeatherDash/
 
 
-<img src="https://imgur.com/a/MvJyucG.jpg">
+<img src="https://imgur.com/WuIfcNy.jpg">
+
