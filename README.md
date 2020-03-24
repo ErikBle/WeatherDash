@@ -1,4 +1,4 @@
-# Weathe rDashboard
+# Weather Dashboard
 
 ## General Info:
 A website that finds the weather for whichever city you look for.
